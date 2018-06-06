@@ -28,11 +28,43 @@ func BenchmarkUnsetMap(b *testing.B) {
 	}
 }
 
-//BenchmarkCountMap - test benchmarks for operation Count on map type
+// BenchmarkCountMap - test benchmarks for operation Count on map type
 func BenchmarkCountMap(b *testing.B) {
 	m := map[Key]interface{}{}
 	for i := 0; i < b.N; i++ {
 		_ = len(m)
+	}
+}
+
+// BenchmarkCount16 - test benchmarks for operation Count on hash map with block size 16
+func BenchmarkCount16(b *testing.B) {
+	hm, _ := NewHashMap(16)
+	for i := 0; i < b.N; i++ {
+		hm.Count()
+	}
+}
+
+// BenchmarkCount64 - test benchmarks for operation Count on hash map with block size 64
+func BenchmarkCount64(b *testing.B) {
+	hm, _ := NewHashMap(64)
+	for i := 0; i < b.N; i++ {
+		hm.Count()
+	}
+}
+
+// BenchmarkCount128 - test benchmarks for operation Count on hash map with block size 128
+func BenchmarkCount128(b *testing.B) {
+	hm, _ := NewHashMap(128)
+	for i := 0; i < b.N; i++ {
+		hm.Count()
+	}
+}
+
+// BenchmarkCount1024 - test benchmarks for operation Count on hash map with block size 1024
+func BenchmarkCount1024(b *testing.B) {
+	hm, _ := NewHashMap(1024)
+	for i := 0; i < b.N; i++ {
+		hm.Count()
 	}
 }
 
