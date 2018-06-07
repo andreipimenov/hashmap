@@ -51,7 +51,7 @@ func hashFunc(blockSize int, key Key) int {
 }
 
 // NewHashMap creates new hash map and returns pointer to it
-func NewHashMap(blockSize int, fn ...HashFunc) (HashMaper, error) {
+func NewHashMap(blockSize int, fn ...HashFunc) (*HashMap, error) {
 	if blockSize <= 0 {
 		return nil, errors.New("blockSize must be more than 0")
 	}
